@@ -8,12 +8,12 @@
 
 n = int(input())
 coin_list = list(map(int, input().split()))
-coin_dict = {}
+coin_list.sort()
 
+target = 1
 for coin in coin_list:
-    try:
-        coin_dict[coin] += 1
-    except:
-        coin_dict[coin] = 1
+    if coin > target:
+        break
+    target += coin
 
-print(coin_dict)
+print(target)
