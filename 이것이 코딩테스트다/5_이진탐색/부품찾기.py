@@ -11,12 +11,12 @@ def binary_search(target, start, end):
     mid = (start + end) // 2
     if n_list[mid] == target:
         return True
-    while start < end:
-        if n_list[mid] > target:
-            return binary_search(target, start, mid - 1)
-        else:
-            return binary_search(target, mid + 1, end)
-    return False
+    if start > end:
+        return False
+    if n_list[mid] > target:
+        return binary_search(target, start, mid - 1)
+    else:
+        return binary_search(target, mid + 1, end)
 
 
 for i in m_list:

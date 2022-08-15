@@ -17,18 +17,13 @@ def binary_search(target, start, end):  # 길이 기준
     mid = (start + end) // 2
     if cal_rest(mid) == target:
         return mid
-    while start < end:
-        if cal_rest(mid) > target:
-            return binary_search(target, mid+1, end)
-        else:
-            return binary_search(target, start, mid-1)
     if cal_rest(mid) > target:
-        return mid
+        return binary_search(target, mid+1, end)
     else:
-        return mid - 1
+        return binary_search(target, start, mid-1)
 
 
-print(binary_search(6, 1, max(array)))
+print(binary_search(m, 1, max(array)))
 
 # 예시 답안
 '''
